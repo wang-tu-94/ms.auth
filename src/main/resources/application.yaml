@@ -5,7 +5,7 @@ spring:
   application:
     name: ms.auth
   datasource:
-    url: jdbc:postgresql://${DB_HOST:db}:${DB_PORT:5432}/${DB_NAME:ms.auth}
+    url: jdbc:postgresql://${DB_HOST:db}:${DB_PORT:5432}/${DB_NAME:ms_auth}
     username: ${DB_USER}
     password: ${DB_PASSWORD}
   sql:
