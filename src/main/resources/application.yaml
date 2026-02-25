@@ -1,0 +1,25 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: ms.auth
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:db}:${DB_PORT:5432}/${DB_NAME:ms.auth}
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+  sql:
+    init:
+      mode: never
+    jpa:
+      hibernate:
+        ddl-auto: update
+
+jwt:
+  secret: ${JWT_SECRET}
+  expiration-ms: ${JWT_EXPIRED_TIME}
+
+grpc:
+  client:
+    log-ingestor:
+      address: ${LOGS_SERVER_HOST}
