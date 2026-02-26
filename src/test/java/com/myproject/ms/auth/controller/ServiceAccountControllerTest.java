@@ -42,7 +42,7 @@ class ServiceAccountControllerTest {
 
         when(serviceAccountService.createServiceAccount(any(ServiceAccountDto.class))).thenReturn(new JwtResponse("mockedJwtToken"));
 
-        mockMvc.perform(post("/api/v1/service-accounts")
+        mockMvc.perform(post("/v1/service-accounts")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(request)))
                 .andExpect(status().isCreated())
@@ -56,7 +56,7 @@ class ServiceAccountControllerTest {
         ServiceAccountDto invalidRequest = new ServiceAccountDto(null, "", null, null);
 
         // When + Then
-        mockMvc.perform(post("/api/v1/service-accounts")
+        mockMvc.perform(post("/v1/service-accounts")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(invalidRequest)))
                 .andExpect(status().isBadRequest());

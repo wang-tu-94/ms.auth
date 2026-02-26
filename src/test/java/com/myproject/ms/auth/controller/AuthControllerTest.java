@@ -47,7 +47,7 @@ class AuthControllerTest {
         Mockito.when(authService.login(any(LoginRequest.class))).thenReturn(jwtResponse);
 
         // When + Then
-        mockMvc.perform(post("/api/v1/auth/login")
+        mockMvc.perform(post("/v1/auth/login")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(request)))
                 .andExpect(status().isOk())
@@ -60,7 +60,7 @@ class AuthControllerTest {
         LoginRequest invalidRequest = new LoginRequest();
 
         // When + Then
-        mockMvc.perform(post("/api/v1/auth/login")
+        mockMvc.perform(post("/v1/auth/login")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(invalidRequest)))
                 .andExpect(status().isBadRequest());

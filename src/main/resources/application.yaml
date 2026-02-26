@@ -1,7 +1,7 @@
 server:
   port: 8082
   servlet:
-    context-path: /ms-auth
+    context-path: /api/ms-auth
 
 spring:
   application:

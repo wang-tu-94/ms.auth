@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("api/v1/service-accounts")
+@RequestMapping("v1/service-accounts")
 public class ServiceAccountController {
     @Autowired
     private ServiceAccountService serviceAccountService;

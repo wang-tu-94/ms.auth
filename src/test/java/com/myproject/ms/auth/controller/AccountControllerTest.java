@@ -60,7 +60,7 @@ class AccountControllerTest {
     void register_shouldReturnCreatedAccount_whenValidRequest() throws Exception {
         Mockito.when(accountService.register(any(RegisterRequest.class))).thenReturn(accountDto);
 
-        mockMvc.perform(post("/api/v1/accounts/register")
+        mockMvc.perform(post("/v1/accounts/register")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(request)))
                 .andExpect(status().isCreated())
@@ -74,7 +74,7 @@ class AccountControllerTest {
     void register_shouldReturnBadRequest_whenInvalidRequest() throws Exception {
         RegisterRequest invalidRequest = new RegisterRequest();
 
-        mockMvc.perform(post("/api/v1/accounts/register")
+        mockMvc.perform(post("/v1/accounts/register")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(invalidRequest)))
                 .andExpect(status().isBadRequest());
