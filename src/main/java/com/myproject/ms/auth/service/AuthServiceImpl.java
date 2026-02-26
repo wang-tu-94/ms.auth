@@ -42,11 +42,12 @@ public class AuthServiceImpl implements AuthService {
             throw new ForbiddenException("Email ou mot de passe invalide");
         }
 
-
         SecretKey key = Keys.hmacShaKeyFor(Base64.getDecoder().decode(jwtConfig.getSecret()));
 
         String token = Jwts.builder()
-                .setSubject(account.getEmail())
+                .setSubject(account.getId().toString())
+                .claim("email", account.getEmail())
+                .claim("username", account.getUsername())
                 .setIssuedAt(new Date())
                 .setExpiration(new Date((new Date()).getTime() + jwtConfig.getExpirationMs()))
                 .signWith(key, SignatureAlgorithm.HS256)

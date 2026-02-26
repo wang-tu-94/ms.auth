@@ -50,6 +50,7 @@ class AuthServiceImplTest {
         request.setPassword("password123");
 
         account = new Account();
+        account.setId(1L);
         account.setEmail("john@email.com");
         account.setPassword("hashedPassword");
 
